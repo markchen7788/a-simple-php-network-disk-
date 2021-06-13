@@ -4,34 +4,21 @@
 毕业设计的一部分成果，用PHP构建了一个简易的网盘，可以在服务器上管理一些小型的文件，无需数据库管理系统支持，即开即用
 
 #### 软件架构
-软件架构说明
+* 开发语言: PHP(version 7.3)、JS、HTML
+* 数据库：sqlite(db文件在源码的“DB”文件夹中)
 
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+把“code”文件夹下的“fileManager”文件夹放置在PHP服务器的根目录下即可，无需其它任何配置
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  管理员用户：admin 密码：admin
+2.  管理员用户可以查看所有用户的文件，在首页点击右键可以进入用户信息管理模块。（就是放入了"phpSQLiteAdmin"数据库管理工具，类似于"phpMyAdmin",默认密码是：admin)
+3.  网盘基本功能：上传单个文件、下载单个文件、新建文件、删除文件、删除文件夹
+4. 文件上传的大小有限制，一般php默认是小于2M，可以在php源码的php.ini中修改这个限制。
 
-#### 参与贡献
+#### 静态展示
+* [点我查看系统静态演示DEMO](./)
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
