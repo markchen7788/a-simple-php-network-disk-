@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>小陈云盘</title>
+    <link rel="stylesheet" href="https://www.layuicdn.com/layui/css/layui.css">
+    <link href="res/bootstrap-combined.css" rel="stylesheet">
+
+    <style>
+        .bigger:hover {
+            transform: scale(1.1, 1.1);
+        }
+
+        .filename {
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        #filename:hover {
+            overflow: auto;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            margin-top: 200px;
+        }
+
+        ul li {
+            list-style-type: none;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        html {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            background: url("res/bg.jpg") no-repeat 0px 0px;
+            background-size: cover;
+            background-attachment: fixed;
+            opacity: 0.7;
+        }
+
+        #menu {
+            border: 1px solid #ccc;
+            background: #eee;
+            position: absolute;
+            width: 80px;
+            height: 70px;
+            display: none;
+        }
+    </style>
+    <script src="https://www.layuicdn.com/layui/layui.js"></script>
+    <link id="layuicss-laydate" rel="stylesheet" href="res/laydate.css"
+        media="all">
+    <link id="layuicss-layer" rel="stylesheet" href="res/layer.css" media="all">
+    <link id="layuicss-skincodecss" rel="stylesheet" href="res/code.css"
+        media="all">
+</head>
+
+<body id="context2" data-toggle="context" data-target="#context-menu2">
+    <blockquote class="layui-elem-quote">
+        <i class="layui-icon layui-icon-prev" style="color: #009688;"><b><a href="javascript:history.back()"
+                    style="color:#009688;">上一级</a><a></a></b></i><a>&nbsp;
+        </a><a href="javascript:msg('主页')" style="color:#009688;"><i
+                class="layui-icon layui-icon-home" style="color: #009688;"><b>主页</b></i></a>&nbsp;
+        <a href="javascript:changeSize(1)" style="color:#009688;"><i class="layui-icon layui-icon-add-circle"
+                style="color: #009688;"><b>放大</b></i></a>&nbsp;
+        <a href="javascript:changeSize(-1)" style="color:#009688;"><i class="layui-icon layui-icon-reduce-circle"
+                style="color: #009688;"><b>缩小</b></i></a>
+        <a href="javascript:msg('退出')" style="color:#009688;"><i
+                class="layui-icon layui-icon-logout" style="color: #009688;"><b>退出</b></i></a>
+        <i class="layui-icon layui-icon-time " style="color: #009688;align:right"><b
+                id="timer">2021/6/13&nbsp;16:02</b></i>
+        <span class="layui-badge-rim layui-bg-orange">
+            欢迎您，用户admin!&nbsp;&nbsp;&nbsp;当前您所在的路径是：home/layui<br> </span>
+    </blockquote>
+    <div>
+        <div class="layui-row layui-col-space15" id="ggg" style="padding: 20px;">
+            <div class="layui-col-md1 layui-col-xs3 bigger">
+                <div class="layui-panel" align="center" value="css" title="css">
+                    <div style="padding: 30px;"><a
+                            href="javascript:msg('打开文件夹')"><img
+                                src="./res/dir.jpeg" width="100%"></a>
+                        <div class="filename">css</div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md1 layui-col-xs3 bigger">
+                <div class="layui-panel" align="center" value="1.php" title="1.php">
+                    <div style="padding: 30px;"><a href="javascript:msg('下载文件')"
+                            download="1.php"><img src="./res/php.jpeg" width="100%"></a>
+                        <div class="filename">1.php</div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md1 layui-col-xs3 bigger">
+                <div class="layui-panel" align="center" value="font" title="font">
+                    <div style="padding: 30px;"><a
+                            href="javascript:msg('打开文件夹')"><img
+                                src="./res/dir.jpeg" width="100%"></a>
+                        <div class="filename">font</div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md1 layui-col-xs3 bigger">
+                <div class="layui-panel" align="center" value="layui.js" title="layui.js">
+                    <div style="padding: 30px;"><a href="javascript:msg('下载文件')"
+                            download="layui.js"><img src="./res/file.jpeg" width="100%"></a>
+                        <div class="filename">layui.js</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="context-menu2" style="position: absolute; z-index: 9999; top: 173px; left: 867px;" class="">
+        <ul class="dropdown-menu" role="menu" style="">
+            <li id="deleteBt" class="layui-hide"><a tabindex="-1"
+                    href="http://markchen7788.xyz/fileManager/index.php?dir_name=home/layui#">删除</a></li>
+            <li><a tabindex="-1" href="javascript:document.getElementById(&quot;upload&quot;).click();">上传文件</a></li>
+            <li><a tabindex="-1" href="javascript:msg('新建文件夹')">新建文件夹</a></li>
+            <li><a tabindex="-1" href="javascript:msg('管理用户信息')">管理用户信息</a></li>
+        </ul>
+    </div>
+    <form method="post" id="uploadForm" class="layui-hide" action="http://markchen7788.xyz/fileManager/upload.php"
+        enctype="multipart/form-data">
+        <input type="file" name="upload" id="upload" onchange="uploadFile()">
+        <input type="text" name="path" value="home/layui">
+        <!-- <input type="submit" id="submitFile"> -->
+    </form>
+    <script src="res/jquery-1.js"></script>
+    <script src="res/bootstrap-contextmenu.js"></script>
+    <script>
+        var currentSize = 1;
+        getCurrentDate();
+        $('#context-menu2').on('hidden.bs.context', function (e) {
+            $("#deleteBt").attr("class", "layui-hide");
+        });
+
+        function uploadFile() {
+            msg('上传文件');
+        }
+
+        function getCurrentDate() {
+            var timeStr = '';
+            var curDate = new Date();
+            var curYear = curDate.getFullYear();
+            var curMonth = curDate.getMonth() + 1; //获取当前月份(0-11,0代表1月)
+            var curDay = curDate.getDate(); //获取当前日(1-31)
+            var curHour = curDate.getHours(); //获取当前小时数(0-23)
+            var curMinute = curDate.getMinutes(); // 获取当前分钟数(0-59)
+            if (curHour < 10) curhour = '0' + curHour;
+            if (curMinute < 10) curMinute = '0' + curMinute;
+            timeStr = curYear + '/' + curMonth + '/' + curDay + '&nbsp' + curHour + ':' + curMinute;
+            //$("#time").text(timeStr);
+            document.getElementById("timer").innerHTML = timeStr;
+        }
+
+        function changeSize(num) {
+            layui.use('jquery', function () {
+                const $ = layui.jquery;
+                $("#ggg").children('.layui-col-md' + currentSize).each(function () {
+                    var text = $(this).attr('class');
+                    currentSize = parseInt(text.charAt(12) + text.charAt(13)) + num;
+                    if (currentSize == 0 || currentSize == 13) currentSize = 1;
+                    $(this).attr('class', 'layui-col-md' + currentSize + ' bigger');
+                })
+            });
+        }
+
+
+
+        window.onload = function () {
+            var aObj = document.getElementsByClassName("layui-panel");
+            for (var i = 0; i < aObj.length; i++) {
+                aObj[i].oncontextmenu = function () {
+                    $("#deleteBt").attr("class", "");
+                    var tmp = document.getElementById("context-menu2").children['0'].children['0'].children['0'];
+                    if (this.getAttribute('value')) {
+                        tmp.setAttribute("href", 'javascript:deleteFile("' + this.getAttribute('value') + '");');
+                    }
+                    return false;
+                }
+            }
+            document.oncontextmenu = function () {
+                return false;
+            }
+        }
+
+        function msg(m) {
+            layui.use("layer", function () {
+                layui.layer.msg(m);
+            });
+        }
+    </script>
+
+
+</body>
+
+</html>
