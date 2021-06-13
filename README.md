@@ -20,5 +20,5 @@
 4. 文件上传的大小有限制，一般php默认是小于2M，可以在php源码的php.ini中修改这个限制。
 
 #### 静态展示
-* [点我查看系统静态演示DEMO](./)
+* [点我查看系统静态演示DEMO](https://markchen7788.github.io/a-simple-php-network-disk-/staticDemo/)
 
